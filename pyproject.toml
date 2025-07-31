@@ -1,25 +1,28 @@
-[project]
-name = "pubmed-fetcher"
+[tool.poetry]
+name = "pubmed-affiliation-cli-aryan6227"
 version = "0.1.0"
 description = "Fetch PubMed papers and filter by pharma/biotech affiliation"
-authors = [
-    { name = "Aryan Gupta", email = "aryangupta6227@gmail.com" }
-]
-license = { text = "MIT" }
+authors = ["Aryan Gupta <aryangupta6227@gmail.com>"]
+license = "MIT"
 readme = "README.md"
-requires-python = ">=3.9"
 keywords = ["pubmed", "cli", "biotech", "pharma", "papers", "ncbi"]
-dependencies = [
-    "requests >=2.32.4,<3.0.0",
-    "pandas >=2.3.1,<3.0.0"
+packages = [
+    { include = "pubmed_fetcher" }
 ]
+homepage = "https://github.com/yourusername/pubmed-paper-fetcher"
+repository = "https://github.com/yourusername/pubmed-paper-fetcher"
 
-[build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+[tool.poetry.dependencies]
+python = ">=3.9"
+requests = "^2.32.4"
+pandas = "^2.3.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.4.1"
 
 [tool.poetry.scripts]
 get-papers-list = "cli:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
